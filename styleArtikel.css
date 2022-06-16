@@ -1,0 +1,252 @@
+/* ================================================= KANTONG VARIABEL ================================================= */
+:root {
+    scroll-behavior: smooth;
+    --warna-terang: rgba(255, 255, 255, 1);
+    --warna-gelap: rgba(66, 66, 66, 1);
+
+    --font-utama: 'Montserrat Subrayada', sans-serif;
+    --font-biasa: 'Montserrat Alternates', sans-serif;
+}
+
+/* ================================================= DAFTAR ISI =================================================
+
+___global style
+_
+
+___layout
+_navbar
+_cover
+_artikel
+_
+
+___debug
+-
+
+*/
+
+/* ================================================= GLOBAL STYLE ================================================= */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+body,
+h1,
+h2,
+h3,
+h6,
+p {
+    margin: 0;
+    color: var(--warna-terang);
+}
+
+.container {
+    margin-inline: auto;
+    width: min(90%, 90rem);
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+h1,
+h2 {
+    font-family: var(--font-biasa);
+}
+
+h1 {
+    font-size: 5rem;
+}
+
+body {
+    font-family: var(--font-biasa);
+}
+
+footer {
+    background-color: #1B1B1B;
+    color: var(--warna-terang);
+
+}
+
+.background {
+    background-image: url(images/artikelbg.jpg);
+    background-repeat: repeat;
+    background-size: 80rem;
+}
+
+.fade-in {
+    opacity: 0;
+    transition: opacity 500ms ease-in;
+}
+
+.fade-in.appear {
+    opacity: 1;
+}
+
+/* ================================================= LAYOUT ================================================= */
+
+/* =============== NAVBAR =============== */
+.navbar {
+    display: inline-block;
+    position: fixed;
+    width: 100%;
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.8), rgba(167, 167, 167, 0));
+    color: white;
+    z-index: 1;
+    padding: 1.5rem 4rem;
+    /* transform: translateY(-54px); */
+    transition: ease-in-out 500ms;
+}
+
+.navbar > a {
+    text-decoration: none;
+    color: var(--warna-terang);
+}
+
+.observed {
+    transform: translateY(0px);
+}
+
+.navbar-title {
+    float: left;
+    margin: 0;
+    font-family: var(--font-utama);
+}
+
+.navbar-link {
+    float: right;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-weight: bold;
+    
+}
+
+.navbar-link a {
+    padding: 0 2rem;
+    text-decoration: none;
+    color: var(--warna-terang);
+    position: relative;
+}
+
+.navbar-link a::after {
+    content: '';
+    display: block;
+    height: 5px;
+    background: var(--warna-gelap);
+    position: absolute;
+    top: 1.2rem;
+    right: 0;
+    left: 0;
+    transform: scale(0, 0.5);
+    transition: transform ease-in-out 250ms;
+}
+
+.navbar-link a:hover::after {
+    transform: scale(0.6, 0.5);
+}
+
+@media (max-width: 600px) {
+    .navbar {
+        display: inline-block;
+        position: fixed;
+        top: 0px;
+        width: 100%;
+        background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.8), rgba(167, 167, 167, 0));
+        color: white;
+        z-index: 1;
+        padding: 1.5rem 1rem;
+    }
+
+    .navbar-link a {
+        padding: 0;
+        margin-left: 10px;
+        text-decoration: none;
+        color: var(--warna-terang);
+    }
+
+    .navbar-link a::after {
+        transform: scale(0, 0.5);
+    }
+
+    .navbar-link a:hover::after {
+        transform: scale(1, 0.5);
+    }
+}
+
+/* =============== ARTIKEL =============== */
+.artikel {
+    min-height: 90vh;
+    position: relative;
+}
+.artikel img {
+    border-radius: 30px;
+}
+
+.column {
+    padding: 5rem 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    text-align: justify;
+}
+
+.column p {
+    margin-top: 2rem;
+}
+
+@media (max-width: 600px) {
+    .column {
+        padding-top: 3rem;
+        padding-bottom: 10rem;
+        display: grid;
+        margin-top: 2rem;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 3rem;
+        text-align: justify;
+    }
+}
+
+.pindah {
+    position: absolute;
+    bottom: 2%;
+    background-color: #1B1B1B;
+    left: 50%;
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translatex(-50%);
+}
+
+.pindah a {
+    text-decoration: none;
+    color: var(--warna-terang);
+}
+
+.pindah p {
+    padding: 0 2rem;
+}
+
+.bold {
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.empty {
+    width: 1rem;
+}
+
+/* =============== FOOTER =============== */
+.footer {
+    padding: 2rem;
+    text-align: center;
+}
